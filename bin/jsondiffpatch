@@ -16,4 +16,9 @@ const left = JSON.parse(fs.readFileSync(fileLeft));
 const right = JSON.parse(fs.readFileSync(fileRight));
 
 const delta = jsondiffpatch.diff(left, right);
-jsondiffpatch.console.log(delta);
+if(delta){
+    jsondiffpatch.console.log(delta);
+    process.exit(1)
+} else {
+    process.exit(0)
+} 
